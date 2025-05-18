@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دردشة العملات</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+
+    .header {
+      background-color: #0088cc;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .coins {
+      padding: 1rem;
+      background: white;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .coin {
+      background: #eef;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .chat-box {
+      padding: 1rem;
+      height: 300px;
+      overflow-y: auto;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .message {
+      margin: 0.5rem 0;
+      background: #dcf8c6;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      max-width: 70%;
+    }
+
+    .input-area {
+      display: flex;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    input {
+      flex: 1;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #0088cc;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">💬 دردشة العملات العربية</div>
+
+  <div class="coins">
+    <div class="coin">💠 TON</div>
+    <div class="coin">🪙 USDT</div>
+    <div class="coin">🐶 $DOGS</div>
+    <div class="coin">⚡ Bitcoin</div>
+    <div class="coin">💎 Blum</div>
+  </div>
+
+  <div class="chat-box" id="chat">
+    <div class="message">👤 مرحباً! ما هي أفضل عملة اليوم؟</div>
+    <div class="message" style="background:#fff3cd;">🤖 أعتقد TON نشيطة اليوم 🔥</div>
+  </div>
+
+  <div class="input-area">
+    <input type="text" placeholder="اكتب رسالتك هنا..." id="userInput">
+    <button onclick="sendMessage()">إرسال</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const chat = document.getElementById("chat");
+
+      if (input.value.trim() !== "") {
+        const msg = document.createElement("div");
+        msg.className = "message";
+        msg.innerText = "👤 " + input.value;
+        chat.appendChild(msg);
+        chat.scrollTop = chat.scrollHeight;
+        input.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
